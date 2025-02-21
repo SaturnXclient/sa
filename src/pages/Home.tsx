@@ -4,12 +4,21 @@ import {
   ChevronRight, Shield, Lock, Code, Network, 
   Brain, Terminal, Fingerprint, Cpu,
   Target, BookOpen, Database, Bug, Eye,
-  Server, Wifi, Globe, FileCode, Key
+  Server, Wifi, Globe, FileCode, Key,
+  Gamepad
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MatrixBackground from '../components/MatrixBackground';
+import RotatingText from '../components/RotatingText';
 
 const Home = () => {
+  const titleTexts = [
+    "Master Ethical Hacking",
+    "Learn Cybersecurity",
+    "Become a Security Expert",
+    "Join the Elite"
+  ];
+
   const learningPaths = [
     {
       title: "Network Security",
@@ -138,14 +147,19 @@ const Home = () => {
           className="absolute inset-0 bg-gradient-to-b from-[#0a0a16]/90 to-[#0a0a16] z-10"
         />
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <motion.h1 
+          <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent"
+            className="text-5xl md:text-7xl font-bold mb-8"
           >
-            Master Ethical Hacking
-          </motion.h1>
+            <RotatingText
+              texts={titleTexts}
+              className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent"
+              staggerDuration={0.03}
+              rotationInterval={4000}
+            />
+          </motion.div>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -172,6 +186,20 @@ const Home = () => {
               className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg text-purple-400 border-2 border-purple-500 hover:bg-purple-500/10 transition-all transform hover:scale-105"
             >
               View Challenges
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-8"
+          >
+            <Link
+              to="/arcade"
+              className="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <Gamepad className="mr-2 h-6 w-6" />
+              Enter Cyber Arcade
             </Link>
           </motion.div>
         </div>

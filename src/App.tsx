@@ -7,6 +7,7 @@ import Modules from './pages/Modules';
 import Challenges from './pages/Challenges';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Arcade from './pages/Arcade';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/challenges" element={<Challenges />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/arcade" element={<Arcade />} />
           </Routes>
         </main>
         <Footer />
@@ -28,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
